@@ -11,7 +11,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Returns information about a file. This is an offline method
+        /// Returns information about a file; this is an offline request
         /// </summary>
         public class GetFile : Function<File>
         {
@@ -36,7 +36,7 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Returns information about a file. This is an offline method
+        /// Returns information about a file; this is an offline request
         /// </summary>
         public static Task<File> GetFileAsync(
             this Client client, int fileId = default)

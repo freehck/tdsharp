@@ -229,13 +229,6 @@ namespace TdLib
             public int SenderBoostCount { get; set; }
 
             /// <summary>
-            /// The number of Telegram Stars the sender paid to send the message
-            /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("paid_message_star_count")]
-            public long PaidMessageStarCount { get; set; }
-
-            /// <summary>
             /// For channel posts and anonymous group messages, optional author signature
             /// </summary>
             [JsonConverter(typeof(Converter))]

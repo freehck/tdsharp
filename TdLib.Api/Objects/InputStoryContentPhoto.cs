@@ -12,7 +12,7 @@ namespace TdLib
         public partial class InputStoryContent : Object
         {
             /// <summary>
-            /// The content of a story to post
+            /// The content of a story to send
             /// </summary>
             public class InputStoryContentPhoto : InputStoryContent
             {

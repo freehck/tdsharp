@@ -31,8 +31,8 @@ namespace TdLib
             /// Identifier of the chat that posted the story
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("story_poster_chat_id")]
-            public long StoryPosterChatId { get; set; }
+            [JsonProperty("story_sender_chat_id")]
+            public long StorySenderChatId { get; set; }
 
             /// <summary>
             /// Identifier of the story to edit
@@ -67,11 +67,11 @@ namespace TdLib
         /// Changes content and caption of a story. Can be called only if story.can_be_edited == true
         /// </summary>
         public static Task<Ok> EditStoryAsync(
-            this Client client, long storyPosterChatId = default, int storyId = default, InputStoryContent content = default, InputStoryAreas areas = default, FormattedText caption = default)
+            this Client client, long storySenderChatId = default, int storyId = default, InputStoryContent content = default, InputStoryAreas areas = default, FormattedText caption = default)
         {
             return client.ExecuteAsync(new EditStory
             {
-                StoryPosterChatId = storyPosterChatId, StoryId = storyId, Content = content, Areas = areas, Caption = caption
+                StorySenderChatId = storySenderChatId, StoryId = storyId, Content = content, Areas = areas, Caption = caption
             });
         }
     }

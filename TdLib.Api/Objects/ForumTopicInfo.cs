@@ -27,13 +27,6 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Identifier of the forum chat to which the topic belongs
-            /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("chat_id")]
-            public long ChatId { get; set; }
-
-            /// <summary>
             /// Message thread identifier of the topic
             /// </summary>
             [JsonConverter(typeof(Converter))]

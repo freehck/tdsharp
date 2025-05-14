@@ -11,9 +11,9 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Creates a new group call that isn't bound to a chat
+        /// Creates a group call from a one-to-one call
         /// </summary>
-        public class CreateGroupCall : Function<GroupCallInfo>
+        public class CreateGroupCall : Function<Ok>
         {
             /// <summary>
             /// Data type for serialization
@@ -28,22 +28,22 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Parameters to join the call; pass null to only create call link without joining the call
+            /// Call identifier
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("join_parameters")]
-            public GroupCallJoinParameters JoinParameters { get; set; }
+            [JsonProperty("call_id")]
+            public int CallId { get; set; }
         }
 
         /// <summary>
-        /// Creates a new group call that isn't bound to a chat
+        /// Creates a group call from a one-to-one call
         /// </summary>
-        public static Task<GroupCallInfo> CreateGroupCallAsync(
-            this Client client, GroupCallJoinParameters joinParameters = default)
+        public static Task<Ok> CreateGroupCallAsync(
+            this Client client, int callId = default)
         {
             return client.ExecuteAsync(new CreateGroupCall
             {
-                JoinParameters = joinParameters
+                CallId = callId
             });
         }
     }

@@ -71,13 +71,6 @@ namespace TdLib
             public int BoostLevel { get; set; }
 
             /// <summary>
-            /// True, if automatic translation of messages is enabled in the channel
-            /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("has_automatic_translation")]
-            public bool HasAutomaticTranslation { get; set; }
-
-            /// <summary>
             /// True, if the channel has a discussion group, or the supergroup is the designated discussion group for a channel
             /// </summary>
             [JsonConverter(typeof(Converter))]
@@ -167,13 +160,6 @@ namespace TdLib
             [JsonConverter(typeof(Converter))]
             [JsonProperty("restriction_reason")]
             public string RestrictionReason { get; set; }
-
-            /// <summary>
-            /// Number of Telegram Stars that must be paid by non-administrator users of the supergroup chat for each sent message
-            /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("paid_message_star_count")]
-            public long PaidMessageStarCount { get; set; }
 
             /// <summary>
             /// True, if the supergroup or channel has non-expired stories available to the current user

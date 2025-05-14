@@ -69,7 +69,7 @@ namespace TdLib
             public FirebaseAuthenticationSettings FirebaseAuthenticationSettings { get; set; }
 
             /// <summary>
-            /// List of up to 20 authentication tokens, recently received in updateOption("authentication_token") in previously logged out sessions; for setAuthenticationPhoneNumber only
+            /// List of up to 20 authentication tokens, recently received in updateOption("authentication_token") in previously logged out sessions
             /// </summary>
             [JsonProperty("authentication_tokens", ItemConverterType = typeof(Converter))]
             public string[] AuthenticationTokens { get; set; }

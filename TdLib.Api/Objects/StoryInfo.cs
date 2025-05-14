@@ -27,7 +27,7 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Unique story identifier among stories of the chat
+            /// Unique story identifier among stories of the given sender
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("story_id")]
