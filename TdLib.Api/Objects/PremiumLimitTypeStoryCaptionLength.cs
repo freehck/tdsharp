@@ -12,7 +12,7 @@ namespace TdLib
         public partial class PremiumLimitType : Object
         {
             /// <summary>
-            /// The maximum length of captions of posted stories
+            /// The maximum length of captions of sent stories
             /// </summary>
             public class PremiumLimitTypeStoryCaptionLength : PremiumLimitType
             {

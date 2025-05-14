@@ -13,7 +13,7 @@ namespace TdLib
         /// <summary>
         /// Returns gifts that can be sent to other users and channel chats
         /// </summary>
-        public class GetAvailableGifts : Function<AvailableGifts>
+        public class GetAvailableGifts : Function<Gifts>
         {
             /// <summary>
             /// Data type for serialization
@@ -33,7 +33,7 @@ namespace TdLib
         /// <summary>
         /// Returns gifts that can be sent to other users and channel chats
         /// </summary>
-        public static Task<AvailableGifts> GetAvailableGiftsAsync(
+        public static Task<Gifts> GetAvailableGiftsAsync(
             this Client client)
         {
             return client.ExecuteAsync(new GetAvailableGifts

@@ -28,7 +28,7 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Identifier of the owner of the Telegram Stars; can be identifier of the current user, an owned bot, or an owned supergroup or channel chat
+            /// Identifier of the owner of the Telegram Stars; can be identifier of an owned bot, or identifier of an owned channel chat
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("owner_id")]

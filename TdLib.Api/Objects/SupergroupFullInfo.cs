@@ -90,13 +90,6 @@ namespace TdLib
             public double? SlowModeDelayExpiresIn { get; set; }
 
             /// <summary>
-            /// True, if paid messages can be enabled in the supergroup chat; for supergroup only
-            /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("can_enable_paid_messages")]
-            public bool CanEnablePaidMessages { get; set; }
-
-            /// <summary>
             /// True, if paid reaction can be enabled in the channel chat; for channels only
             /// </summary>
             [JsonConverter(typeof(Converter))]
@@ -175,7 +168,6 @@ namespace TdLib
 
             /// <summary>
             /// True, if new chat members will have access to old messages. In public, discussion, of forum groups and all channels, old messages are always available,
-            /// so this option affects only private non-forum supergroups without a linked chat. The value of this field is only available to chat administrators
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("is_all_history_available")]

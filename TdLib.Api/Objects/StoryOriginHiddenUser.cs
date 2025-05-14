@@ -12,7 +12,7 @@ namespace TdLib
         public partial class StoryOrigin : Object
         {
             /// <summary>
-            /// The original story was posted by an unknown user
+            /// The original story was sent by an unknown user
             /// </summary>
             public class StoryOriginHiddenUser : StoryOrigin
             {
@@ -29,11 +29,11 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Name of the user or the chat that posted the story
+                /// Name of the story sender
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
-                [JsonProperty("poster_name")]
-                public string PosterName { get; set; }
+                [JsonProperty("sender_name")]
+                public string SenderName { get; set; }
             }
         }
     }

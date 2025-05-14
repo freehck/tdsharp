@@ -28,13 +28,6 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Unique identifier of business connection on behalf of which to send the request; for bots only
-            /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("business_connection_id")]
-            public string BusinessConnectionId { get; set; }
-
-            /// <summary>
             /// Identifier of the gift
             /// </summary>
             [JsonConverter(typeof(Converter))]
@@ -46,11 +39,11 @@ namespace TdLib
         /// Sells a gift for Telegram Stars
         /// </summary>
         public static Task<Ok> SellGiftAsync(
-            this Client client, string businessConnectionId = default, string receivedGiftId = default)
+            this Client client, string receivedGiftId = default)
         {
             return client.ExecuteAsync(new SellGift
             {
-                BusinessConnectionId = businessConnectionId, ReceivedGiftId = receivedGiftId
+                ReceivedGiftId = receivedGiftId
             });
         }
     }

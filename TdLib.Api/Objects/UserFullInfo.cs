@@ -153,27 +153,6 @@ namespace TdLib
             public int GroupInCommonCount { get; set; }
 
             /// <summary>
-            /// Number of Telegram Stars that must be paid by the user for each sent message to the current user
-            /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("incoming_paid_message_star_count")]
-            public long IncomingPaidMessageStarCount { get; set; }
-
-            /// <summary>
-            /// Number of Telegram Stars that must be paid by the current user for each sent message to the user
-            /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("outgoing_paid_message_star_count")]
-            public long OutgoingPaidMessageStarCount { get; set; }
-
-            /// <summary>
-            /// Settings for gift receiving for the user
-            /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("gift_settings")]
-            public GiftSettings GiftSettings { get; set; }
-
-            /// <summary>
             /// Information about verification status of the user provided by a bot; may be null if none or unknown
             /// </summary>
             [JsonConverter(typeof(Converter))]

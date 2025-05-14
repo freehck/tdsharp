@@ -29,13 +29,6 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Identifier of the user that initially sent the gift
-                /// </summary>
-                [JsonConverter(typeof(Converter))]
-                [JsonProperty("user_id")]
-                public long UserId { get; set; }
-
-                /// <summary>
                 /// The upgraded gift
                 /// </summary>
                 [JsonConverter(typeof(Converter))]

@@ -35,13 +35,6 @@ namespace TdLib
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("can_unarchive")]
                 public bool CanUnarchive { get; set; }
-
-                /// <summary>
-                /// Basic information about the other user in the chat; may be null if unknown
-                /// </summary>
-                [JsonConverter(typeof(Converter))]
-                [JsonProperty("account_info")]
-                public AccountInfo AccountInfo { get; set; }
             }
         }
     }

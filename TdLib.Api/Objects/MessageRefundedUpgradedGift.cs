@@ -43,7 +43,7 @@ namespace TdLib
                 public MessageSender SenderId { get; set; }
 
                 /// <summary>
-                /// True, if the gift was obtained by upgrading of a previously received gift; otherwise, this is a transferred or resold gift
+                /// True, if the gift was obtained by upgrading of a previously received gift
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("is_upgrade")]
