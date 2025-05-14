@@ -29,7 +29,7 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// True, if the gift was obtained by upgrading of a previously received gift; otherwise, this is a transferred gift
+                /// True, if the gift was obtained by upgrading of a previously received gift; otherwise, this is a transferred or resold gift
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("is_upgrade")]

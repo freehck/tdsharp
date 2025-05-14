@@ -34,21 +34,28 @@ namespace TdLib
             public int Id { get; set; }
 
             /// <summary>
-            /// Group call title
+            /// Group call title; for video chats only
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("title")]
             public string Title { get; set; }
 
             /// <summary>
-            /// Point in time (Unix timestamp) when the group call is expected to be started by an administrator; 0 if it is already active or was ended
+            /// Invite link for the group call; for group calls that aren't bound to a chat. For video chats call getVideoChatInviteLink to get the link
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("invite_link")]
+            public string InviteLink { get; set; }
+
+            /// <summary>
+            /// Point in time (Unix timestamp) when the group call is expected to be started by an administrator; 0 if it is already active or was ended; for video chats only
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("scheduled_start_date")]
             public int ScheduledStartDate { get; set; }
 
             /// <summary>
-            /// True, if the group call is scheduled and the current user will receive a notification when the group call starts
+            /// True, if the group call is scheduled and the current user will receive a notification when the group call starts; for video chats only
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("enabled_start_notification")]
@@ -62,7 +69,14 @@ namespace TdLib
             public bool IsActive { get; set; }
 
             /// <summary>
-            /// True, if the chat is an RTMP stream instead of an ordinary video chat
+            /// True, if the call is bound to a chat
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("is_video_chat")]
+            public bool IsVideoChat { get; set; }
+
+            /// <summary>
+            /// True, if the call is an RTMP stream instead of an ordinary video chat; for video chats only
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("is_rtmp_stream")]
@@ -83,7 +97,14 @@ namespace TdLib
             public bool NeedRejoin { get; set; }
 
             /// <summary>
-            /// True, if the current user can manage the group call
+            /// True, if the user is the owner of the call and can end the call, change volume level of other users, or ban users there; for group calls that aren't bound to a chat
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("is_owned")]
+            public bool IsOwned { get; set; }
+
+            /// <summary>
+            /// True, if the current user can manage the group call; for video chats only
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("can_be_managed")]
@@ -97,7 +118,7 @@ namespace TdLib
             public int ParticipantCount { get; set; }
 
             /// <summary>
-            /// True, if group call participants, which are muted, aren't returned in participant list
+            /// True, if group call participants, which are muted, aren't returned in participant list; for video chats only
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("has_hidden_listeners")]
@@ -138,14 +159,14 @@ namespace TdLib
             public bool CanEnableVideo { get; set; }
 
             /// <summary>
-            /// True, if only group call administrators can unmute new participants
+            /// True, if only group call administrators can unmute new participants; for video chats only
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("mute_new_participants")]
             public bool MuteNewParticipants { get; set; }
 
             /// <summary>
-            /// True, if the current user can enable or disable mute_new_participants setting
+            /// True, if the current user can enable or disable mute_new_participants setting; for video chats only
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("can_toggle_mute_new_participants")]
