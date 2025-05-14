@@ -2,8 +2,10 @@
 #
 # SPDX-License-Identifier: MIT
 
+# 4a967f7a633d3c98184806650607b1746020a6a8 is a release of version 1.8.49
+
 param(
-    [string] $CommitHash = '51743dfd01dff6179e2d8f7095729caa4e2222e9',
+    [string] $CommitHash = '4a967f7a633d3c98184806650607b1746020a6a8',
     [string] $TdApiUrl = "https://github.com/tdlib/td/raw/$CommitHash/td/generate/scheme/td_api.tl",
 
     [string] $SourceRoot = "$PSScriptRoot/..",
