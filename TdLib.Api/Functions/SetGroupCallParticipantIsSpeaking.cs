@@ -11,7 +11,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Informs TDLib that speaking state of a participant of an active group has changed
+        /// Informs TDLib that speaking state of a participant of an active group call has changed
         /// </summary>
         public class SetGroupCallParticipantIsSpeaking : Function<Ok>
         {
@@ -50,7 +50,7 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Informs TDLib that speaking state of a participant of an active group has changed
+        /// Informs TDLib that speaking state of a participant of an active group call has changed
         /// </summary>
         public static Task<Ok> SetGroupCallParticipantIsSpeakingAsync(
             this Client client, int groupCallId = default, int audioSource = default, bool isSpeaking = default)
