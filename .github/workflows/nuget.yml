@@ -71,7 +71,7 @@ jobs:
         with:
           upload_url: ${{ steps.release.outputs.upload_url }}
           asset_name: TDLib.${{ steps.version.outputs.version }}.nupkg
-          asset_path: ./TdLib/bin/Release/TDLib.${{ steps.version.outputs.version }}.nupkg
+          asset_path: ./TdLib/bin/Release/NV.TDLib.${{ steps.version.outputs.version }}.nupkg
           asset_content_type: application/zip
       - name: Upload TDLib.Api .nupkg
         uses: actions/upload-release-asset@v1
@@ -81,12 +81,12 @@ jobs:
         with:
           upload_url: ${{ steps.release.outputs.upload_url }}
           asset_name: TDLib.Api.${{ steps.version.outputs.version }}.nupkg
-          asset_path: ./TdLib.Api/bin/Release/TDLib.Api.${{ steps.version.outputs.version }}.nupkg
+          asset_path: ./TdLib.Api/bin/Release/NV.TDLib.Api.${{ steps.version.outputs.version }}.nupkg
           asset_content_type: application/zip
 
       - name: Push TDLib to NuGet
         if: github.event_name == 'push' && contains(github.ref, 'refs/tags/')
-        run: dotnet nuget push ./TdLib/bin/Release/TDLib.${{ steps.version.outputs.version }}.nupkg --source https://api.nuget.org/v3/index.json --api-key ${{ secrets.NUGET_KEY_TDLIB }}
+        run: dotnet nuget push ./TdLib/bin/Release/NV.TDLib.${{ steps.version.outputs.version }}.nupkg --source https://api.nuget.org/v3/index.json --api-key ${{ secrets.NUGET_KEY_TDLIB }}
       - name: Push TDLib.Api to NuGet
         if: github.event_name == 'push' && contains(github.ref, 'refs/tags/')
-        run: dotnet nuget push ./TdLib.Api/bin/Release/TDLib.Api.${{ steps.version.outputs.version }}.nupkg --source https://api.nuget.org/v3/index.json --api-key ${{ secrets.NUGET_KEY_TDLIB_API }}
+        run: dotnet nuget push ./TdLib.Api/bin/Release/NV.TDLib.Api.${{ steps.version.outputs.version }}.nupkg --source https://api.nuget.org/v3/index.json --api-key ${{ secrets.NUGET_KEY_TDLIB_API }}
