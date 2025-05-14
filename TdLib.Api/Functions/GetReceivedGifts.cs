@@ -28,6 +28,13 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
+            /// Unique identifier of business connection on behalf of which to send the request; for bots only
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("business_connection_id")]
+            public string BusinessConnectionId { get; set; }
+
+            /// <summary>
             /// Identifier of the gift receiver
             /// </summary>
             [JsonConverter(typeof(Converter))]
@@ -95,11 +102,11 @@ namespace TdLib
         /// Returns gifts received by the given user or chat
         /// </summary>
         public static Task<ReceivedGifts> GetReceivedGiftsAsync(
-            this Client client, MessageSender ownerId = default, bool excludeUnsaved = default, bool excludeSaved = default, bool excludeUnlimited = default, bool excludeLimited = default, bool excludeUpgraded = default, bool sortByPrice = default, string offset = default, int limit = default)
+            this Client client, string businessConnectionId = default, MessageSender ownerId = default, bool excludeUnsaved = default, bool excludeSaved = default, bool excludeUnlimited = default, bool excludeLimited = default, bool excludeUpgraded = default, bool sortByPrice = default, string offset = default, int limit = default)
         {
             return client.ExecuteAsync(new GetReceivedGifts
             {
-                OwnerId = ownerId, ExcludeUnsaved = excludeUnsaved, ExcludeSaved = excludeSaved, ExcludeUnlimited = excludeUnlimited, ExcludeLimited = excludeLimited, ExcludeUpgraded = excludeUpgraded, SortByPrice = sortByPrice, Offset = offset, Limit = limit
+                BusinessConnectionId = businessConnectionId, OwnerId = ownerId, ExcludeUnsaved = excludeUnsaved, ExcludeSaved = excludeSaved, ExcludeUnlimited = excludeUnlimited, ExcludeLimited = excludeLimited, ExcludeUpgraded = excludeUpgraded, SortByPrice = sortByPrice, Offset = offset, Limit = limit
             });
         }
     }

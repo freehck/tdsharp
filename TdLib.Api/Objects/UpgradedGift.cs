@@ -41,7 +41,7 @@ namespace TdLib
             public string Title { get; set; }
 
             /// <summary>
-            /// Unique name of the upgraded gift that can be used with internalLinkTypeUpgradedGift
+            /// Unique name of the upgraded gift that can be used with internalLinkTypeUpgradedGift or sendResoldGift
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("name")]
@@ -76,7 +76,7 @@ namespace TdLib
             public MessageSender OwnerId { get; set; }
 
             /// <summary>
-            /// Address of the gift NFT owner in TON blockchain; may be empty if none
+            /// Address of the gift NFT owner in TON blockchain; may be empty if none. Append the address to getOption("ton_blockchain_explorer_url") to get a link with information about the address
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("owner_address")]
@@ -90,7 +90,7 @@ namespace TdLib
             public string OwnerName { get; set; }
 
             /// <summary>
-            /// Address of the gift NFT in TON blockchain; may be empty if none
+            /// Address of the gift NFT in TON blockchain; may be empty if none. Append the address to getOption("ton_blockchain_explorer_url") to get a link with information about the address
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("gift_address")]
@@ -123,6 +123,13 @@ namespace TdLib
             [JsonConverter(typeof(Converter))]
             [JsonProperty("original_details")]
             public UpgradedGiftOriginalDetails OriginalDetails { get; set; }
+
+            /// <summary>
+            /// Number of Telegram Stars that must be paid to buy the gift and send it to someone else; 0 if resale isn't possible
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("resale_star_count")]
+            public long ResaleStarCount { get; set; }
         }
     }
 }

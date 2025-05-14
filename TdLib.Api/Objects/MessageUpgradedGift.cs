@@ -50,7 +50,7 @@ namespace TdLib
                 public string ReceivedGiftId { get; set; }
 
                 /// <summary>
-                /// True, if the gift was obtained by upgrading of a previously received gift; otherwise, this is a transferred gift
+                /// True, if the gift was obtained by upgrading of a previously received gift; otherwise, this is a transferred or resold gift
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("is_upgrade")]
@@ -78,11 +78,32 @@ namespace TdLib
                 public bool WasTransferred { get; set; }
 
                 /// <summary>
+                /// Number of Telegram Stars that were paid by the sender for the gift; 0 if the gift was upgraded or transferred
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("last_resale_star_count")]
+                public long LastResaleStarCount { get; set; }
+
+                /// <summary>
                 /// Number of Telegram Stars that must be paid to transfer the upgraded gift; only for the receiver of the gift
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("transfer_star_count")]
                 public long TransferStarCount { get; set; }
+
+                /// <summary>
+                /// Point in time (Unix timestamp) when the gift can be transferred to another owner; 0 if the gift can be transferred immediately or transfer isn't possible; only for the receiver of the gift
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("next_transfer_date")]
+                public int NextTransferDate { get; set; }
+
+                /// <summary>
+                /// Point in time (Unix timestamp) when the gift can be resold to another user; 0 if the gift can't be resold; only for the receiver of the gift
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("next_resale_date")]
+                public int NextResaleDate { get; set; }
 
                 /// <summary>
                 /// Point in time (Unix timestamp) when the gift can be transferred to the TON blockchain as an NFT; 0 if NFT export isn't possible; only for the receiver of the gift

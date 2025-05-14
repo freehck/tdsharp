@@ -62,6 +62,20 @@ namespace TdLib
             public long TransferStarCount { get; set; }
 
             /// <summary>
+            /// Point in time (Unix timestamp) when the gift can be transferred to another owner; 0 if the gift can be transferred immediately or transfer isn't possible
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("next_transfer_date")]
+            public int NextTransferDate { get; set; }
+
+            /// <summary>
+            /// Point in time (Unix timestamp) when the gift can be resold to another user; 0 if the gift can't be resold; only for the receiver of the gift
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("next_resale_date")]
+            public int NextResaleDate { get; set; }
+
+            /// <summary>
             /// Point in time (Unix timestamp) when the gift can be transferred to the TON blockchain as an NFT
             /// </summary>
             [JsonConverter(typeof(Converter))]
